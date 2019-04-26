@@ -1,0 +1,12 @@
+{% csrf_token %}
+<div class="form-group">
+    <input type="password" class="form-control zhijiao" id="pwd" name="pwd" placeholder="设置新密码">
+</div>
+<div class="form-group">
+    <input type="password" class="form-control zhijiao" id="repwd" name="repwd" placeholder="确认新密码">
+</div>
+<div class="errormes-div"></div>
+<div class="form-group">
+    <button id="set_pwd" type="button" class="btn btn-primary btn-block zhijiao">确认修改</button>
+    <p><a href="{% url 'home' %}"><small>取消修改</small></a></p>
+</div>

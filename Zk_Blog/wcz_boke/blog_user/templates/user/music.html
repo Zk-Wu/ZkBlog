@@ -1,0 +1,117 @@
+{% extends 'user/index.html' %}
+{% load static %}
+{% block title %}
+<link rel="stylesheet" href=" {% static 'css/music.css' %}">
+<title>音乐分享</title>
+{% endblock title %}
+{% block body %}
+<div style="margin-top:-10px;">
+    <div id="myimg" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myimg" data-slide-to="0" class="active"></li>
+            <li data-target="#myimg" data-slide-to="1"></li>
+            <li data-target="#myimg" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="{% static 'img/a.png' %}" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>音乐无国界</h5>
+                    <p>倾听来自不同的声音</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="{% static 'img/b.png' %}" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>音乐歌颂人们的生活</h5>
+                    <p>引导人们走向光明的未来</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="{% static 'img/c.png' %}" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>一首我喜爱的乐曲</h5>
+                    <p>所传给我的思想和意义是不能用语言表达的</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#myimg" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myimg" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<div class="row">
+    {% for music_type in music_types %}
+    <div class="col-lg-4 music-border">
+        <div class="music-title">
+            <span class="oi oi-caret-right red"></span>
+            {{music_type}}
+            <span class="oi oi-caret-left red"></span>
+        </div>
+        <ul class="list-group">
+            {% for music in musics %}
+            {% if music.song_type == music_type %}
+            <li class="list-group-item mya" data-toggle="collapse" data-target="#{{music.id}}" aria-expanded="false"
+                aria-controls="{{music.id}}">推荐音乐《{{music.music_name}}》
+                <div class="collapse" id="{{music.id}}">
+                    <div class="card card-body music-card">
+                        <p>歌手：{{music.songer}}</p>
+                        <p>推荐理由：{{music.music_info}}</p>
+                    </div>
+                </div>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+    <!-- <div class="miusic-main">
+    <div class="card-deck">
+        <div class="card">
+            <img class="card-img-top" src="{% static 'img/ok.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">歌曲名：</h5>
+                <p class="card-text">推荐理由：</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">时间：</small>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="{% static 'img/ok.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">歌曲名：</h5>
+                <p class="card-text">推荐理由：</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">时间：</small>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="{% static 'img/ok.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">歌曲名：</h5>
+                <p class="card-text">推荐理由：</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">时间：</small>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="{% static 'img/ok.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">歌曲名：</h5>
+                <p class="card-text">推荐理由：</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">时间：</small>
+            </div>
+        </div>
+    </div>
+</div> -->
+    {% endblock body %}

@@ -1,0 +1,144 @@
+{% extends 'user/index.html' %}
+{% load static %}
+{% block title %}
+<link rel="stylesheet" href=" {% static 'css/useradd.css' %}">
+<script src="{% static 'js/useradd.js' %}"></script>
+<title>用户注册</title>
+{% endblock title %}
+{% block top_nav %}
+<div id="head" class="top_div">
+    <div class="d-none d-sm-block ">
+        <span class="logo-span">
+            <a href="{% url 'home' %}" class="logo-a">
+                <img src="{% static 'img/bloglogo.gif' %}" alt="logo" class="logo">
+                <span class="logo-text">注册博客账号</span>
+            </a>
+        </span>
+    </div>
+    <div class="d-sm-none phone_top_title">
+        <a href="{% url 'home' %}" class="logo-a">
+            <span class="oi oi-caret-right red"></span>
+            <span class="phone_title_span">注册账号</span>
+            <span class="oi oi-caret-left red"></span>
+        </a>
+    </div>
+</div>
+<div id="nav" class="top_nav">
+    <div class="nav_2"></div>
+</div>
+{% endblock top_nav %}
+{% block body %}
+<div id="content" class="clearfix">
+    <div class="row">
+        <div class="col-lg-9 left_form">
+            <form id="useraddform" method="POST">
+                {% csrf_token %}
+                <div class="row form-group">
+                    <div class="col-lg-2">
+                        <label for="user" class="form-label">用户名</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" id="user" name="user" placeholder="输入用户名">
+                    </div>
+                    <div class="col-lg-5">
+                        <span class="spanhelp">
+                            <small id="userHelp" class="text-muted"></small>
+                        </span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-lg-2">
+                        <label for="pwd" class="form-label">密码</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="输入密码">
+                    </div>
+                    <div class="col-lg-5">
+                        <span class="spanhelp"><small id="pwdHelp" class="text-muted">
+                            </small></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-lg-2">
+                        <label for="repwd" class="form-label">确认密码</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <input type="password" class="form-control" id="repwd" name="repwd" placeholder="确认密码">
+                    </div>
+                    <div class="col-lg-5">
+                        <span class="spanhelp"><small id="repwdHelp" class="text-muted"></small></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-lg-2">
+                        <label for="email" class="form-label">电子邮箱</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="输入电子邮箱">
+                    </div>
+                    <div class="col-lg-5">
+                        <span class="spanhelp"><small id="emailHelp" class="text-muted"></small></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-lg-2">
+                        <label for="emailyzm" class="form-label">邮箱验证码</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="input-group mb-1">
+                            <input type="text" class="form-control zhijiao" id="emailyzm" name="emailyzm"
+                                placeholder="输入邮箱验证码">
+                            <div class="input-group-append">
+                                <span class="btn btn-secondary zhijiao email-yz">发送验证邮件</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <span class="spanhelp"><small id="emailyzmHelp" class="text-muted"></small></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-lg-2">
+                        <label for="yzm" class="form-label">验证码</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="input-group mb-1">
+                            <input type="text" class="form-control zhijiao" id="yzm" name="yzm" placeholder="输入验证码">
+                            <div class="input-group-append">
+                                <span id="imgcontainer" class="btn imgyzm zhijiao"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <span class="spanhelp"><small id="yzmHelp" class="text-muted"></small></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-lg-2 col-lg-5">
+                        <button type="submit" class="btn btn-primary useradd-btn">注册</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-3 right_mes">
+            <h3 class="reg_mes_title">欢迎来到我的个人博客</h3>
+            <div>
+                <p class="reg_mes_p reg-mes-p-text">用户名注意事项：</p>
+                <p class="reg_mes_p reg-mes-p-warn">用户名字符长度3-10位</p>
+                <p class="reg_mes_p reg-mes-p-text">邮箱注意事项：</p>
+                <p class="reg_mes_p reg-mes-p-warn">发送验证码到填写邮箱，请注意查看邮件</p>
+                <p class="reg_mes_p reg-mes-p-text">验证码注意事项：</p>
+                <p class="reg_mes_p reg-mes-p-warn">验证码区分大小写</p>
+                <p class="reg_mes_p reg-mes-p-warn">可点击验证码图片，更换验证码</p>
+                <p class="reg_mes_p reg-mes-p-text">确认信息无误后点击注册，成功后会跳转到首页</p>
+                <!-- <p class="reg_mes_p reg-mes-p-text">可扫码关注我的公众号</p> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div id="food">
+    <div class="copy-box">2019&nbsp;©zcorew</div>
+</div>
+{% endblock body %}
+{% block login %}
+{% endblock login %}

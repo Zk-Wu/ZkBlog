@@ -1,0 +1,284 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href=" {% static 'css/index.css' %}">
+    <link rel="stylesheet" href=" {% static 'css/open-iconic-bootstrap.css' %}">
+    <script src="{% static 'js/jquery-1.9.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+    {% block title %}
+    <title>个人博客首页</title>
+    {% endblock title %}
+</head>
+
+<body>
+    <!-- 顶部导航栏 -->
+    {% block top_nav %}
+    <nav id="top-navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand userlogin_right" href="{% url 'home' %}">Zk个人博客</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul id="top-ul" class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'home' %}">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'recordmy' %}">记录生活</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'study_back' %}">技术备忘</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'music' %}">音乐交流</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'myself' %}">关于自己</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'usermes' %}">用户留言</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav userlogin_right">
+                <li class="nav-item">
+                    <a id="create_subject" class="nav-link" href=" {% url 'create_subject' %}">投稿</a>
+                </li>
+                {% if request.session.name %}
+                <li class="nav-item">
+                    <span class="nav-link">
+                        {{request.session.name}}
+                    </span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=" {% url 'userlogout' %} ">注销</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href=" {% url 'useradd' %} ">注册</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="userlogin" href="#" data-toggle="modal" data-target="#loginModal">登录</a>
+                </li>
+                {% endif %}
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <form action=" {% url 'user_search' %}" method="get" id="searchform" target="_blank">
+                        <div class="input-group mb-1">
+                            <input type="search" id="searchinput" name="search_text" class="form-control"
+                                placeholder="输入内容...">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit">搜索</button>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {% endblock top_nav %}
+    <!-- 内容主体 -->
+    <div class="container-fluid main-div">
+        {% block body %}
+        {% block main %}
+        <div class="row">
+            <div class="col-1 offset-1 left_bar d-none d-lg-block ">
+                <!-- 左侧导航栏 -->
+                <nav id="sidebar" class="d-none d-lg-block">
+                    <div class="composing" id="leftbardiv">
+                        <div class="nav flex-column nav-pills left-bar">
+                            <a href="{% url 'home' %}" class="nav-link active mya">推荐</a>
+                            {% for block in blocks %}
+                            <a data-name="{{block.block_name}}" class="nav-link mya">
+                                {{block.block_name}}
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- 主题内容与统计 -->
+            <div class="col-9 blogcenter d-none d-lg-block " id="subjectmain_div">
+                <!-- 主题内容 -->
+                <div class="main">
+                    <ul class="list-group main_subject_list">
+                        {% for subject in subjects %}
+                        <li class="list-group-item lihover">
+                            <div class="li_head_div">
+                                <div class="li_div_title">
+                                    <h2 class="sujects_li_title"><a href="{% url 'show_subject' subject.id  %}">
+                                            {{subject.subject_name|truncatechars:45}}
+                                        </a></h2>
+                                </div>
+                                <span class="sujects_type">
+                                    <small class="left-bar">
+                                        <span class="oi oi-paperclip" title="bolck_type" aria-hidden="true"></span>
+                                        {{subject.block.block_name}}
+                                    </small>
+                                </span>
+                            </div>
+                            <div class="li_body_div">
+                                {{subject.subject_bodymes|striptags}}
+                            </div>
+                            <div class="row li_food_div">
+                                <div class="col-6 text-left">
+                                    <span class="subject_user">{{subject.user}}</span>
+                                    <small>|</small> {{subject.subject_create_date|date:'m月d日'}}
+                                </div>
+                                <div class="col-6 text-right">
+                                    <small>浏览</small> {{subject.accesses_num}} <small>|</small> <small>评论</small>
+                                    {{subject.messages.all.count}}
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endblock main %}
+                <!-- 右侧博客信息导航统计 -->
+                <div class="right-card d-none d-lg-block">
+                    <div class="card" style="width:100%;">
+                        <img class="card-img-top" src=" {% static 'img/ok.jpg' %}" alt="图片">
+                        <div class="card-body">
+                            <h5 class="card-title">欢迎</h5>
+                            <p class="card-text">一个记录博客</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title"><span class="oi oi-bolt red"></span> 最新更新</h5>
+                            <ul class="list-group list-group-flush" id="newest_subject">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title"><span class="oi oi-book red"></span> 文章分类</h5>
+                            <a href="/subject/type/?type=原创"><p class="card-text">原创</p></a>
+                            <a href="/subject/type/?type=转载"><p class="card-text">转载</p></a>
+                            <a href="/subject/type/?type=翻译"><p class="card-text">翻译</p></a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title"><span class="oi oi-clock red"></span> 时间归档</h5>
+                            <div id="save_date"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 手机端主题内容 -->
+            <div class="col-12 d-lg-none">
+                <div class="leftdhl">
+                    <div class="row">
+                        <div class="col-8" id="phone_leftbar">
+                            <ul id="mobile-menu" class="list-group testbar left-bar">
+                                <li class="list-group-item phone-left-li"><a href="{% url 'home' %}" class="nav-link mya">推荐</a></li>
+                                {% for block in blocks %}
+                                <li class="list-group-item phone-left-li"><a data-name="{{block.block_name}}" class="nav-link mya">
+                                    {{block.block_name}}
+                                </a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-1">
+                            <div id="sdaas" class="oi oi-caret-right phone-left-bar leftbnt mya"></div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group main_subject_list" id="pc_ul">
+                    {% for subject in subjects %}
+                    <li class="list-group-item lihover">
+                        <div class="li_head_div">
+                            <div class="li_div_title">
+                                <h2 class="sujects_li_title"><a href="{% url 'show_subject' subject.id  %}">
+                                        {{subject.subject_name|truncatechars:45}}
+                                    </a></h2>
+                            </div>
+                            <span class="sujects_type">
+                                <small>
+                                    <span class="oi oi-paperclip" title="bolck_type" aria-hidden="true"></span>
+                                    {{subject.block.block_name}}
+                                </small>
+                            </span>
+                        </div>
+                        <div class="li_body_div">
+                            {{subject.subject_bodymes|striptags}}
+                        </div>
+                        <div class="row li_food_div">
+                            <div class="col-6 text-left">
+                                <span class="subject_user">{{subject.user}}</span>
+                                <small>|</small> {{subject.subject_create_date|date:'m月d日'}}
+                            </div>
+                            <div class="col-6 text-right">
+                                <small>浏览</small> {{subject.accesses_num}} <small>|</small> <small>评论</small>
+                                {{subject.messages.all.count}}
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endblock body %}
+    </div>
+    {% block login %}
+    <!-- 登录弹出框 -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content zhijiao">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title-login">ZCoreW博客·登录</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="divuserform">
+                    <form method="POST" id="userloginmodal">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="form-control zhijiao" id="user" name="user" placeholder="用户名">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control zhijiao" id="pwd" name="pwd" placeholder="密码">
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-1">
+                                <input type="text" class="form-control zhijiao" id="yzm" name="yzm" placeholder="验证码">
+                                <div class="input-group-append">
+                                    <span class="btn imgyzm zhijiao" id="imgyzm"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="errormes-div">{{loginerror}}</div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block zhijiao">登录</button>
+                            <p><a id="reset-pwd" data-id="reset" class="mya"><small>忘记密码</small></a></p>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <span><a class="a-blank" href=" {% url 'useradd' %} ">立即注册</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock login %}
+    <input type="hidden" id="cklogin" value="{{nologin}}">
+</body>
+<!-- 底部自动加载 -->
+<script type="text/javascript">
+
+</script>
+
+</html>

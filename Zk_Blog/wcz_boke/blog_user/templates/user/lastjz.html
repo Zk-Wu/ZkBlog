@@ -1,0 +1,30 @@
+{% for subject in subjects %}
+<li class="list-group-item lihover">
+    <div class="li_head_div">
+        <div class="li_div_title">
+            <h2 class="sujects_li_title"><a href="{% url 'show_subject' subject.id  %}">
+                    {{subject.subject_name|truncatechars:45}}
+                </a></h2>
+        </div>
+        <span class="sujects_type">
+            <small>
+                <span class="oi oi-paperclip" title="bolck_type" aria-hidden="true"></span>
+                {{subject.block.block_name}}
+            </small>
+        </span>
+    </div>
+    <div class="li_body_div">
+        {{subject.subject_bodymes|striptags}}
+    </div>
+    <div class="row li_food_div">
+        <div class="col-6 text-left">
+            <span class="subject_user">{{subject.user}}</span>
+            <small>|</small> {{subject.subject_create_date|date:'m月d日'}}
+        </div>
+        <div class="col-6 text-right">
+            <small>浏览</small> {{subject.accesses_num}} <small>|</small> <small>评论</small>
+            {{subject.messages.all.count}}
+        </div>
+    </div>
+</li>
+{% endfor %}

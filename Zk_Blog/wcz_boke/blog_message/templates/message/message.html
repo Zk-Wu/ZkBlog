@@ -1,0 +1,15 @@
+<!-- reversed 逆向循环 -->
+{% for message in message %}
+    <li class="col-12 message_li">
+        <div>
+            <span>#{{forloop.revcounter}}楼</span>
+            <span>{{message.message}}</span>
+            <span>
+                <a href="#">举报</a>
+                {% if request.session.name %}
+                    <a class="btn-delete mya" data-type="delmessage" data-id="{{message.id}}">删除</a>
+                {% endif %}
+            </span>
+        </div>
+    </li>
+{% endfor %}

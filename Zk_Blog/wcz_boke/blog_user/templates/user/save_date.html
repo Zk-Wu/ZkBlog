@@ -1,0 +1,17 @@
+{% regroup dates by year as dates_by_year %}
+<ul id="datesaveul" class="ul-none">
+    {% for month in dates_by_year %}
+    <li class="one_li">
+        <span data-dateyear="{{month.grouper}}" class="date-li-span mya">{{month.grouper}}年<span id="{{month.grouper}}icon" class="oi oi-chevron-right span-icon"></span></span>
+        <ul class="list-group list-group-none" id="{{month.grouper}}ul">
+            {% for m in month.list %}
+            <a data-date="{{m|date:'Y-m-d'}}" class="mya date-a">
+                <li class="list-group-item list-group-item-action">
+                    {{m|date:'m月'}}
+                </li>
+            </a>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>

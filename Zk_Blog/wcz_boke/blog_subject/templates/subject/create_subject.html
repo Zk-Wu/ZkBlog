@@ -1,0 +1,75 @@
+{% extends 'user/index.html' %}
+{% load static %}
+{% block title %}
+<link rel="stylesheet" href=" {% static 'css/summernote.css' %}">
+<link rel="stylesheet" href=" {% static 'css/create_subject.css' %}">
+<script src="{% static 'js/summernote.js' %}"></script>
+<script src="{% static 'js/summernote-zh-CN.js' %}"></script>
+<script src="{% static 'js/ck_max_text.js' %}"></script>
+<title>创建主题</title>
+{% endblock title %}
+{% block body %}
+<!-- 主体 -->
+<div class="container main-div">
+    <div id="#mesmain" class="row">
+        <!-- style="height:500px;border: 1px solid #000" -->
+        <!-- 创建主题标题 -->
+        <div class="col-12 title_div" style="margin: 30px 0">
+            <input type="text" name="textTitle" id="textTitle" maxlength="100" placeholder="输入文章标题" class="title_input">
+            <span class="title_span">
+                <span class="title_span_change">0</span>/100
+            </span>
+        </div>
+        <!-- 输入内容 -->
+        <div class="col-12 mes_main">
+            <!-- 后续添加功能按钮 -->
+            <!-- <span></span> -->
+            <div class="col-12 mes_body"></div>
+            <!-- 输入文本域 -->
+            <!-- <textarea name="text_body" id="text_body" class="mes_txt"></textarea> -->
+            <!-- 选项 -->
+            <div class="col-12 mes_food">
+                <div>
+                    <!-- 类型选择 -->
+                    <div class="row margin_bottom">
+                        <div class="col-md-2">
+                            <label for="select01">文章类型:</label>
+                        </div>
+                        <div class="col-md-2 left_select">
+                            <select class="custom-select" id="post_Category">
+                                <option selected>请选择</option>
+                                <option value="原创">原创</option>
+                                <option value="转载">转载</option>
+                                <option value="翻译">翻译</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="select02">主题分类:</label>
+                        </div>
+                        <div class="col-md-2 left_select">
+                            <select class="custom-select" id="subject_Category">
+                                <option selected>请选择</option>
+                                {% for block in blocks %}
+                                <option value="{{block.block_name}}">{{block.block_name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <!-- 提交与返回按钮 -->
+                    <div class="row">
+                        <div class="col-md-2 offset-md-4">
+                            <button class="btn btn-outline-danger btn-lg" id="submit">确认发布</button>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-outline-secondary btn-lg">取消发布</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% csrf_token %}
+{% endblock body %}
+{% block login %}
+{% endblock login %}

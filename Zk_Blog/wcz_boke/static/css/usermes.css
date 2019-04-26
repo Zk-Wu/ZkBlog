@@ -1,0 +1,74 @@
+body {
+    background-image: url('../img/usermesbody.jpg');
+    background-repeat: no-repeat;
+    /* 固定 */
+    background-attachment: fixed;
+    background-size:100% 100%;
+}
+
+.bodydiv{
+    /* height: 1000px; */
+    background-color: #f4f4f4;
+    padding: 1rem 1.75rem;
+    margin: -10px -15px 20px -15px;
+    /* margin-top: -10px;
+    margin-bottom: 20px; */
+}
+
+.listssdiv{
+    /* height: 1000px; */
+    padding: 1rem 1.75rem;
+    background-color: #f4f4f4;
+    margin: 0 -15px 20px -15px;
+    /* margin-bottom: 20px; */
+}
+
+.title-div {
+    margin: 20px 0px;
+    padding: 1rem 1.75rem;
+    background-color: #fff;
+    font-size: 2rem;
+    font-weight: 300;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,.05);
+}
+
+.conter-div {
+    padding: 0.5rem 0.3rem;
+    background-color: #fff;
+    font-size: 0.85rem;
+    margin: 20px 0px;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,.05);
+}
+
+.list-div {
+    padding: 1rem 1.75rem;
+    margin-top: 20px;
+    min-height: 100px;
+    background-color: #fff;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,.05);
+}
+
+.post-btn{
+    float: right;
+    margin:0;
+    margin-top: -20px;
+    margin-bottom: 10px;
+}
+
+.usermes-food-left{
+    float: left;
+    padding: 0;
+}
+
+.usermes-food-right{
+    border-left: 3px solid #CA0C16;
+    float: right;
+    padding: 0;
+    padding-left: 10px;
+}
+
+.sendmes:hover{
+    color: #CA0C16;
+}
