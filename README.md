@@ -1,5 +1,5 @@
 # ZkBlog 我的个人博客网站项目文件
->**网站介绍：** 该博客网站由Nginx+uWSGI+Django+MySQL搭建(上传文件为测试版，数据库使用Django自带的SQLite)，前端主体采用Bootstrap框架，网站页面使用响应式布局，手机、平板、电脑全兼容。使用Ajax、jQuery、css3增强用户交互体验效果。
+>**网站介绍：** 该博客网站由Nginx+uWSGI+Django+MySQL搭建(上传文件为测试版，数据库使用Django自带的SQLite)，前端主体采用Bootstrap框架，网站页面使用响应式布局，手机、平板、电脑全兼容。使用Ajax、jQuery、css3增强用户交互体验效果。网站整体风格模仿csdn，新手大家多多见谅。
 ## 初始版本
 >**功能介绍**
 #### 1. 用户注册、登录、注销
