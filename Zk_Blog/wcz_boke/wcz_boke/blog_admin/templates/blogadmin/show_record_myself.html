@@ -1,0 +1,28 @@
+{% extends 'user/index.html' %}
+{% load static %}
+{% block title %}
+<link rel="stylesheet" href=" {% static 'css/show_subject.css' %}">
+<script src="{% static 'js/subject.js' %}"></script>
+<title>我的生活记录</title>
+{% endblock title %}
+{% block body %}
+<div class="container main-div subject_main">
+    <!-- 主题标题 -->
+    <div class="subject_title">
+        <div class="h1-title">
+            <h1>{{mysubject.titie_name|truncatechars:30}}</h1>
+        </div>
+        <div>
+            <span class="title_span">时间:{{mysubject.subject_create_date}}</span>
+            <span class="title_span">{{mysubject.user}}</span>
+            <span>浏览:<span class="accesses_num">{{mysubject.views_num}}</span></span>
+        </div>
+    </div>
+    <!-- 主题内容 -->
+    <div class="subject_body">
+        {% autoescape off %}
+        <div class="show_subject_div">{{mysubject.mainmes}}</div>
+        {% endautoescape %}
+    </div>
+</div>
+{% endblock body %}

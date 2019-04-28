@@ -1,0 +1,133 @@
+body {
+    background: #f4f4f4;
+}
+
+.subject_main{
+    min-height: 1200px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding:50px 30px;
+    background-color: #fff;
+    webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.04);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.04);
+}
+
+.subject_title{
+    line-height: 47px;
+    min-height: 10%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.subject_body{
+    /* 自动换行 */
+    overflow-wrap: break-word;
+    word-wrap:break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.subject_footer{
+    /* overflow:hidden; */
+    margin-top: -46px;
+    margin-bottom: 90px;
+    padding:20px 30px;
+    background-color: #fff;
+    webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.04);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.04);
+}
+
+.message_input{
+    /* background-color: #efefef; */
+    resize:none;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    height: 50px;
+    /* border-radius: 0; */
+    /* border: none; */
+    outline:none;
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+.col-12,.col-3,.col-1{
+    padding: 0;
+}
+
+.message_first_div{
+    /* min-height: 235px; */
+    max-height: 315px;
+}
+
+.message_ul{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    list-style:none;
+    padding-left:0;
+}
+
+.message_li{
+    display:block;
+    min-height: 50px;
+    line-height: 50px;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.125);
+    overflow-wrap: break-word;
+    word-wrap:break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.message_li_last{
+    display:block;
+    min-height: 50px;
+    line-height: 50px;
+    overflow-wrap: break-word;
+    word-wrap:break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.show_subject_div{
+    padding-top:30px;
+}
+
+.open{
+    height: 125px;
+}
+
+/* css3平滑过渡的动画效果 */
+.excessive-act:hover,
+.excessive-act {
+    transition: all 0.3s linear;
+}
+
+.form_bottom_div{
+    display: none;
+    margin: 0;
+}
+
+.subject_title .title_span{
+    margin-right: 3%;
+}
+
+.post-btn{
+    margin-left:1rem;
+}
+
+.mypagination{
+    padding-left: 0;
+    list-style: none;
+    /* display: block; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.usermesdatespan{
+    margin-left: 20px;
+    color: #6b6969;
+}

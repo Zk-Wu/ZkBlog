@@ -1,0 +1,50 @@
+{% extends 'user/index.html' %}
+{% load static %}
+{% block title %}
+<link rel="stylesheet" href=" {% static 'css/show_subject.css' %}">
+<script src="{% static 'js/subject.js' %}"></script>
+<title>主题页</title>
+{% endblock title %}
+{% block body %}
+<div class="container main-div subject_main">
+    <!-- 主题标题 -->
+    <div class="subject_title">
+        <div class="h1-title">
+            <h1>{{subject.subject_name|truncatechars:30}}</h1>
+        </div>
+        <div>
+            <span class="title_span">时间:{{subject.subject_create_date}}</span>
+            <span class="title_span">{{subject.user}}</span>
+            <span>浏览:<span class="accesses_num">{{subject.accesses_num}}</span></span>
+        </div>
+    </div>
+    <!-- 主题内容 -->
+    <div class="subject_body">
+        {% autoescape off %}
+        <div class="show_subject_div">{{subject.subject_bodymes}}</div>
+        {% endautoescape %}
+    </div>
+</div>
+<!-- 留言 -->
+<div class="container main-div subject_footer">
+    <form id="submit_message">
+        {% csrf_token %}
+        <input type="hidden" id="subject_id" name="subject_id" value="{{subject.id}}">
+        <div class="row col-12">
+            <textarea type="text" id="user_message" name="user_message" placeholder="想对作者说点什么"
+                class="message_input excessive-act"></textarea>
+        </div>
+        <div class="form_bottom_div">
+            <div>
+                <small><span>还能输入<span id="check_zf"></span>个字符</span></small>
+                <button type="submit" class="btn btn-danger post-btn">发表评论</button>
+            </div>
+        </div>
+    </form>
+    <div class="row" id="message_show">
+        <div class="message_first_div col-12">
+            <ul class="message_ul"></ul>
+        </div>
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,345 @@
+body {
+    background: #f4f4f4;
+}
+
+a{
+    color: #707070;
+}
+
+.userlogin_right{
+    margin-right:5%;
+}
+
+.main-div{
+    padding: 10px 0;
+}
+
+.nav-pills{
+    border-radius:0;
+}
+
+.row{
+    margin: 0;
+}
+
+.col-8{
+    padding: 0;
+}
+
+.nav-pills .nav-link{
+    border-radius:0;
+    margin-bottom: 2px;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  background-color:rgba(219, 52, 52, 0.85);
+}
+
+.nav-pills a.nav-link:hover{
+    background-color: rgba(211,51,51,0.85);
+    color: #fff;    
+}
+
+.composing{
+   background-color: #fff;
+   /* margin-right: 14px; */
+   text-align: center;
+   line-height: 32px;
+   padding: 6px 0;
+   webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.04);
+   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.04);
+}
+
+.blogcenter{
+    /* border:1px solid #007bff; */
+    min-height: 750px;
+}
+
+.main{
+    float: left;
+    width: 72%;
+    /* border: 1px solid rgba(0, 0, 0, 0.125); */
+    border-radius: 0;
+    min-height:975px;
+    background-color: #fff;
+}
+
+.right-card{
+    word-break:break-all;
+    word-wrap:break-word;
+    overflow:hidden;
+    width:27%;
+    /* border:1px solid #d1210a; */
+    float: right;
+}
+
+.card{
+    margin-bottom: 5px;
+}
+
+.main .card{
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.bg-light {
+    background-color: #ffffff !important;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,.05);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #000000;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(211,51,51,0.9);
+}
+
+.navbar-light .navbar-nav .nav-link:focus{
+    border-bottom: 3px solid #CA0C16;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    border-bottom: 3px solid #CA0C16;
+}
+
+.red{
+    color: #CA0C16;
+}
+
+.form-control{
+    border: 1px solid #6c757d;
+    outline:none;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #6c757d;
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-outline-secondary:focus, .btn-outline-secondary.focus ,.btn-outline-secondary:active{
+    box-shadow: none;
+}
+
+.btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-secondary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+.left_bar{
+    padding-right: 0;
+}
+
+.list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.lihover{
+    padding: 18px 24px;
+    background: #fff;
+    border-bottom: 1px solid #f4f4f4;
+    position: relative;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.04);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.04);
+    height: 7.9rem;
+    min-height: 7.9rem;
+    max-height: 7.9rem;
+}
+
+.lihover:hover{
+    background-color: #f8f9fa;
+    color: #495057;
+}
+
+.lihover h2{
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+}
+
+.li_div_title{
+    width: 85%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    float: left;
+}
+
+.lihover a{
+    color: #000000;
+}
+
+.lihover a:hover{
+    color: rgba(211,51,51,0.9);
+    text-decoration: none;
+}
+.sujects_li_title{
+    display: inline;
+}
+
+.sujects_type{
+    float: right;
+}
+
+.li_head_div{
+    width: 100%;
+    height: 35%;
+}
+
+.li_body_div{
+    color: #8a8a8a;
+    font-size: 16px;
+    line-height: 24px;
+    height:35%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+
+.li_food_div{
+    height:30%;
+    color: #8a8a8a;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.li_food_div .col-6{
+    padding: 0;
+}
+
+.subject_user{
+    color: #000000;
+}
+
+.newest_subject_list {
+    padding: 0.35rem 0;
+}
+
+.mya{
+    /* a标签不写href也变手指形 */
+    cursor:pointer;
+}
+
+/* .mya:hover{
+    color: #CA0C16;
+} */
+
+/* @media (min-width: 992px) */
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0.1rem;
+    padding-left: 0.1rem;
+}
+
+.zhijiao{
+    border-radius: 0;
+}
+
+.imgyzm{
+    padding: 0;
+    border-color: #6c757d;
+    width: 7.5rem;
+}
+
+.yzm-img{
+    display: inline-block;
+    width: 100%;
+}
+.errormes-div{
+    color: #CA0C16;
+    font-size: 0.75rem;
+    text-align: right;
+    margin-top: -1rem;
+    height: 2rem;
+}
+
+.nav-link {
+    width: 100%;
+}
+
+.phone-left-bar{
+    left: -15px;
+    font-size: 1.5rem;
+    cursor:pointer;
+}
+
+.leftdhl{
+    position:fixed;
+    left: 0px;
+    top:9%;
+    z-index: 999;
+
+}
+
+.testbar{
+    display: none;
+    /* color: #fdfdfd; */
+}
+
+.leftbnt{
+    color: #CA0C16;
+}
+
+.left-bar .phone-left-li {
+    text-align: center;
+    padding: 0;
+}
+
+.left-bar .phone-left-li a{
+    color: #000;
+}
+
+.ul-none{
+    padding-left: 0;
+    list-style: none;
+}
+
+.ul-none .date-li-span{
+    display: block;
+    padding: 0.75rem 1.25rem;
+    padding-left: 0;
+}
+
+.ul-none .date-li-span .span-icon{
+    color: #CA0C16;
+    padding-left: 10px;
+}
+
+.list-group-none {
+    display: none;
+}
+
+/* css3平滑过渡的动画效果 */
+.excessive-act:hover,
+.excessive-act {
+    transition: all 0.3s linear;
+}
+
+/* 清除浮动 */
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.instrecode {
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}

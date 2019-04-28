@@ -1,0 +1,73 @@
+{% extends 'user/index.html' %}
+{% load static %}
+{% block title %}
+<link rel="stylesheet" href=" {% static 'css/show_subject.css' %}">
+<link rel="stylesheet" href=" {% static 'css/usermes.css' %}">
+<script src="{% static 'js/subject.js' %}"></script>
+<script src="{% static 'js/usermes.js' %}"></script>
+<title>用户留言</title>
+{% endblock title %}
+{% block body %}
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <div class="bodydiv">
+            <div class="title-div">给我留言</div>
+        </div>
+        <div class="listssdiv">
+            <div class="conter-div">
+                <form id="submit_message">
+                    {% csrf_token %}
+                    <textarea type="text" id="user_message" name="user_message" placeholder="想对我说点什么..."
+                        class="message_input excessive-act"></textarea>
+                    <div class="clearfix"><button type="button" class="btn btn-danger post-btn"
+                            id="usermes_submit">留言发表</button></div>
+                    <div class="row form_bottom_div clearfix">
+                        <div class="col-lg-5 usermes-food-left">
+                            <input type="text" class="message_input" id="email" placeholder="邮箱/选填">
+                            <input type="text" class="message_input" id="nicheng" placeholder="昵称/必填">
+                        </div>
+                        <div class="col-lg-6 usermes-food-right">
+                            <h4 id="helperror">注意事项：昵称字符长度1-10位，可包含字母/数字/中文/下划线</h4>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 offset-lg-2" id="list_div"></div>
+</div>
+<div class="modal fade" id="UserMessageModal" tabindex="-1" role="dialog" aria-labelledby="UserMessageModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content zhijiao">
+            <div class="modal-header">
+                <h5 class="modal-title" id="UserMessageModalLabel">回复</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="user-message" class="col-form-label">回复信息:</label>
+                    <textarea class="form-control zhijiao" id="user-message"></textarea>
+                    {% csrf_token %}
+                    <input type="hidden" id="usermesid">
+                </div>
+                <div class="form-group">
+                    <label for="message-nicheng" class="col-form-label">昵称:</label>
+                    <input type="text" class="form-control zhijiao" id="message-nicheng" placeholder="昵称/必填">
+                </div>
+                <div class="form-group">
+                    <label for="message-email" class="col-form-label">邮箱:</label>
+                    <input type="text" class="form-control zhijiao" id="message-email" placeholder="邮箱/选填">
+                </div>
+                <div id="errorhf" class="errormes-div"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary zhijiao" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary zhijiao" id="userhuifu">回复</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

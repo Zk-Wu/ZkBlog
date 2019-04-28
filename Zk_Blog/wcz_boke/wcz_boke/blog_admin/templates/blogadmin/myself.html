@@ -1,0 +1,68 @@
+{% extends 'user/index.html' %}
+{% load static %}
+{% block title %}
+<link rel="stylesheet" href=" {% static 'css/myself.css' %}">
+<title>关于自己</title>
+{% endblock title %}
+{% block body %}
+<div class="offset-lg-1 col-lg-10">
+    <div class="myself-main">
+        <div class="main-head-title">
+            关于自己
+        </div>
+        <div class="main-body">
+            <div class="main-body-title">
+                <span class="oi oi-caret-right red"></span>
+                介绍自己
+                <span class="oi oi-caret-left red"></span>
+            </div>
+            <div class="main-body">
+                <div class="div-myimg" oncontextmenu='return false' ondragstart='return false'
+                    onselectstart='return false' onselect='document.selection.empty()'
+                    oncopy='document.selection.empty()' onbeforecopy='return false'
+                    onmouseup='document.selection.empty()'>
+                    <img src="{% static 'img/ok.jpg' %}" alt="" class="myimg">
+                </div>
+                <p class="main-body-p">吴曹彰</p>
+                <p class="main-body-p">喜好：音乐、看书、写字、浪费时间、无聊。</p>
+                <p class="main-body-p2">天行健，君子以自强不息。地势坤，君子以厚德载物。</p>
+                <p class="main-body-p2">用九，天德不可为首也。</p>
+
+            </div>
+        </div>
+        <div class="main-body">
+            <div class="main-body-title">
+                <span class="oi oi-caret-right red"></span>
+                交流 / 联系
+                <span class="oi oi-caret-left red"></span>
+            </div>
+            <div class="main-body">
+                <p>微信公众号(欢迎留言)</p>
+                <div class="col-lg-6">
+                    <img style="width:50%;" src="{% static 'img/wxgzh.jpg' %}" alt="微信公众号">
+                </div>
+            </div>
+        </div>
+        <div class="main-body">
+            <div class="main-body-title">
+                <span class="oi oi-caret-right red"></span>
+                支持 / 赞助
+                <span class="oi oi-caret-left red"></span>
+            </div>
+            <div class="main-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p class="sss">微信</p>
+                        <img id="kkk" style="width:50%;" src="{% static 'img/wxskm.png' %}" alt="微信收款码">
+                    </div>
+                    <div class="col-lg-6">
+                        <p>支付宝</p>
+                        <img style="width:50%;" src="{% static 'img/zfbskm.jpg' %}" alt="支付宝收款码">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

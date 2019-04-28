@@ -1,0 +1,86 @@
+body {
+    background: #f4f4f4;
+}
+
+.col-12{
+    padding: 0;
+}
+
+.title_div{
+    background-color: #efefef;
+}
+
+.title_input{
+    background-color: #efefef;
+    width: 92%;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 0;
+    border: none;
+    outline:none;
+}
+
+.title_span{
+    font-size: 20px;
+    padding-right: 17px;
+    text-align: right;
+    display: inline-block;
+    width: 7.4%;
+}
+
+.mes_main{
+    display: block;
+    
+    padding: 0;
+}
+
+.mes_body{
+    border: 1px solid #d1d1d1;
+    overflow:scroll;
+}
+
+.mes_txt{
+    background-color: #fff;
+    display: block;
+    width: 100%;
+    border: none;
+    outline:none;
+    /* 禁止textarea拉伸 */
+    resize:none;
+    min-height: 1200px;
+    font-size: 1.30rem;
+    color: #4f4f4f;
+    font-weight: 400;
+    /* line-height: 26px; */
+    /* margin: 0 0 16px; */
+    overflow-x: auto;
+}
+
+.mes_food{
+    margin-top: 45px;
+    margin-bottom: 30px;
+}
+
+.container,.main-div #mesmain{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding:0 50px;
+    background-color: #fff;
+    webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.04);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.04);
+}
+
+.col-md-2 label{
+    font-size: 22px;
+    color: #4F4F4F;
+}
+
+.margin_bottom{
+    margin-bottom: 30px;
+}
+
+.left_select{
+    padding-left: 0px;
+    margin-left: -40px;
+}

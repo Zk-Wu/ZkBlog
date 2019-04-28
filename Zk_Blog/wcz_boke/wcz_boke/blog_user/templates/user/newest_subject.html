@@ -1,0 +1,8 @@
+{% for newest_subject in newest_subjects %}
+    {% if newest_subject.subject_name|length > 20 %}
+        <a href="{% url 'show_subject' newest_subject.id  %}"><li class="list-group-item newest_subject_list">{{newest_subject.subject_name|truncatechars:20}}</li></a>
+    {% else %}
+        <a href="{% url 'show_subject' newest_subject.id  %}"><li class="list-group-item newest_subject_list">{{newest_subject.subject_name}}</li></a>
+    {% endif %}
+{% endfor %}
+    

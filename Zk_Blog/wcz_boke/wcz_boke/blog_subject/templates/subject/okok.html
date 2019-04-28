@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href=" {% static 'css/summernote.css' %}">
+    <link rel="stylesheet" href=" {% static 'css/create_subject.css' %}">
+    <script src="{% static 'js/jquery-1.9.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/summernote.js' %}"></script>
+    <script src="{% static 'js/summernote-zh-CN.js' %}"></script>
+    <title>创建主题</title>
+</head>
+<body>
+    <div class="mes_body"></div>
+</body>
+<script>
+$(function(){
+  $('.mes_body').summernote({
+    placeholder:'请输入文章内容',
+    minHeight:900,
+    dialogsFade : true,
+    dialogsInBody : true,
+    disableDragAndDrop : false,
+    focus: true,
+  });
+})
+</script>
+</html>

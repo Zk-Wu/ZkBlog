@@ -1,0 +1,156 @@
+body{
+    background-color: #fff;
+}
+
+#head,#content,#food{
+    width:67%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top_div{
+    height:97px;
+    background-color: #fff;
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.125); */
+}
+
+.top_div .phone_top_title{
+    height: 100%;
+    color: #707070;
+    text-align: center;
+}
+
+.top_div .phone_top_title .phone_title_span{
+    height: 100%;
+    line-height: 97px;
+    font-size: 1.75rem;
+    font-weight: 400;
+}
+
+.top_nav{
+    margin: 0;
+    width:100%;
+    background: 0 0;
+    /* x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色 */
+    /* box-shadow: 0 1px 5px 3px rgba(0,0,0,0.04); */
+}
+
+.top_nav .nav_2{
+    height: 20px;
+    background: url(/static/img/reg_hr.png) no-repeat center top;
+}
+
+.left_form{
+    overflow: hidden;
+    padding-top:40px; 
+}
+
+.right_mes{
+    border: 1px solid #d1eeff;
+    background-color: #f5fbff;
+    margin-top: 40px;
+    height: 467px;
+}
+
+.reg_mes_title{
+    margin: 0 10px;
+    /* padding-left: 30px; */
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #e6edf2;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+    color: #666;
+}
+
+.reg-mes-p-text {
+    color: #666;
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 5px
+}
+
+.reg_mes_p{
+    margin: 0 10px;
+}
+
+.reg-mes-p-warn{
+    font-size: 14px;
+    color: #f18300;
+    font-weight: 700;
+}
+
+.form-label{
+    display: block;
+    text-align: right;
+    width: 100%;
+    /* padding-right: 10px;
+    width: 15%;  */
+    /* min-width: 360px; */
+}
+
+.form-group{
+    margin-bottom: 1rem;
+}
+
+
+
+.form-control {
+    border: 1px solid #ced4da;
+    width: 100%;
+    border-radius: 0;
+    outline: none;
+}
+
+.useradd-btn{
+    width: 100%;
+    border-radius: 0;
+}
+
+.input-error{
+    border: 1px solid #ec211a;
+}
+
+.help-error{
+    color: #ec211a !important;
+}
+
+.oi-color{
+    color: #059445e5 !important;
+}
+
+.logo{
+    width: 190px;
+    margin-top: 27px;
+}
+
+.logo-a:hover{
+    color: #707070;
+    text-decoration: none;
+}
+
+.logo-span{
+    display: inline-block;
+    height: 100%;
+}
+
+.logo-text{
+    font-size: 1.52rem;
+}
+
+#food {
+    text-align: center;
+    color: #7a77c8;
+    margin-top: 50px;
+    margin-bottom: 3px;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#useraddform .col-lg-5{
+    padding-left: 20px;
+}

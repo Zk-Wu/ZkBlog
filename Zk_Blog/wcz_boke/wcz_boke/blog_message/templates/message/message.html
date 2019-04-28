@@ -1,0 +1,53 @@
+<!-- reversed 逆向循环反向迭代 -->
+{% for message in message %}
+{% if forloop.last %}
+<li class="message_li_last">
+    <div>
+        <span>{{message.1.user}}：</span>
+        <span>{{message.1.message}}</span>
+        <small><span class="usermesdatespan">({{message.1.message_create_date}}</span><span class="usermesdatespan">#{{message.0}}楼)</span></small>
+        <span>
+            <a href="#">举报</a>
+            {% if request.session.name %}
+            <a class="btn-delete mya" data-type="delmessage" data-id="{{message.1.id}}">删除</a>
+            {% endif %}
+        </span>
+    </div>
+</li>
+{% else %}
+<li class="message_li">
+    <div>
+        <span>{{message.1.user}}：</span>
+        <span>{{message.1.message}}</span>
+        <small><span class="usermesdatespan">({{message.1.message_create_date}}</span><span class="usermesdatespan">#{{message.0}}楼)</span></small>
+        <span>
+            <a href="#">举报</a>
+            {% if request.session.name %}
+            <a class="btn-delete mya" data-type="delmessage" data-id="{{message.1.id}}">删除</a>
+            {% endif %}
+        </span>
+    </div>
+</li>
+{% endif %}
+    
+
+{% endfor %}
+<ul class="mypagination">
+    {% if message.number == 1 %}
+    <li class="btn disabled btn-outline-secondary" data-page="1">&laquo;</li>
+    {% else %}
+    <li class="mya btn btn-outline-danger" data-page="1">&laquo;</li>
+    {% endif %}
+    {% for i in page_range %}
+    {% if i == message.number %}
+    <li class="btn disabled btn-danger" data-page="{{i}}">{{i}}</li>
+    {% else %}
+    <li class="mya btn btn-outline-danger" data-page="{{i}}">{{i}}</li>
+    {% endif %}
+    {% endfor %}
+    {% if message.number == message.paginator.num_pages %}
+    <li class="btn disabled btn-outline-secondary" data-page="{{ message.paginator.num_pages }}">&raquo;</li>
+    {% else %}
+    <li class="mya btn btn-outline-danger" data-page="{{ message.paginator.num_pages }}">&raquo;</li>
+    {% endif %}
+</ul>

@@ -1,0 +1,58 @@
+{% extends 'user/search.html' %}
+{% block title %}
+<title>技术备忘</title>
+{% endblock title %}
+{% block main %}
+<!-- 主题内容与统计 -->
+<div class="row">
+    <!-- 主题内容与统计 -->
+    <div class="col-10 blogcenter offset-1 d-none d-lg-block " id="subjectmain_div">
+        <!-- 主题内容 -->
+        <div class="main">
+            <ul class="list-group main_subject_list">
+                {% for myselfs in myself %}
+                <li class="list-group-item lihover">
+                    <div class="li_head_div">
+                        <div class="li_div_title">
+                            <h2 class="sujects_li_title"><a href="/show/myself/?myselfid={{myselfs.id}}">
+                                    {{myselfs.titie_name|truncatechars:45}}
+                                </a></h2>
+                        </div>
+                        <span class="sujects_type">
+                            <small>
+                                <span class="oi oi-paperclip" title="bolck_type" aria-hidden="true"></span>
+                                生活记录
+                            </small>
+                        </span>
+                    </div>
+                    <div class="li_body_div">
+                        {{myselfs.mainmes|striptags}}
+                    </div>
+                    <div class="row li_food_div">
+                        <div class="col-6 text-left">
+                            <span class="subject_user">{{myselfs.user}}</span>
+                            <small>|</small> {{myselfs.subject_create_date|date:'m月d日'}}
+                        </div>
+                        <div class="col-6 text-right">
+                            <small>浏览</small> {{myselfs.views_num}} <small>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endblock main %}
+        <!-- 后续功能 -->
+        <!-- <div class="row" id="height">
+    <div class="col-6" style="height:100%;border: 1px solid rgb(231, 29, 29);"></div>
+    <div class="col-6" style="height:100%;border: 1px solid rgb(231, 29, 29);"></div>
+</div>
+<script>
+    $(function(){
+        var ss =$(window).height()
+        var s = $("#top-navbar").outerHeight(true);
+        var hei = ss-s-22
+        // alert(hei)
+        $("#height").attr('style','height:'+hei+'px')
+    })
+</script> -->
